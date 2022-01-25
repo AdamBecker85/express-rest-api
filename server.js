@@ -17,5 +17,5 @@ app.use('/api', concertsRoutes);
 app.use('/api', seatsRoutes);
 
 app.use((req, res) => {
-  return res.json({message: 'Not found...'});
+  res.json({message: 'Not found...'});
 });

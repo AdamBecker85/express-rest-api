@@ -8,7 +8,7 @@ router.route('/concerts').get((req, res) => {
 });
 
 router.route('/concerts/:id').get((req, res) => {
-  res.json(db.concerts.filter((item) => item.id == req.params.id));
+  res.json(db.concerts.find((item) => item.id == req.params.id));
 });
 
 router.route('/concerts').post((req, res) => {
@@ -25,14 +25,14 @@ router.route('/concerts').post((req, res) => {
 });
 
 router.route('/concerts/:id').delete((req, res) => {
-  const deletedConcerts = db.concerts.filter((item) => item.id == req.params.id);
+  const deletedConcerts = db.concerts.find((item) => item.id == req.params.id);
   const indexOfConcerts = db.concerts.indexOf(deletedConcerts);
   db.concerts.splice(indexOfConcerts, 1);
   return res.json({message: 'ok'});
 });
 
 router.route('/concerts/:id').put((req, res) => {
-  const editedConcerts = db.concerts.filter((item) => item.id == req.params.id);
+  const editedConcerts = db.concerts.find((item) => item.id == req.params.id);
   const indexOfConcerts = db.concerts.indexOf(editedConcerts);
   const newConcert = {
     ...editedConcerts,
