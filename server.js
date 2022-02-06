@@ -17,6 +17,11 @@ const server = app.listen(process.env.PORT || 8000, () => {
   console.log('Server is running on port: ', process.env.PORT || 8000);
 });
 
+app.use((req, res, next) => {
+  req.io = io;
+  next();
+});
+
 app.use('/api', testimonialsRoutes);
 app.use('/api', concertsRoutes);
 app.use('/api', seatsRoutes);
