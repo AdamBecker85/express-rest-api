@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '/client/build')));
 
 const server = app.listen(process.env.PORT || 8000, () => {
-  console.log('Server is running on port: ', process.env.PORT || 8000);
+  console.log('Server is running on port: 8000');
 });
 
 app.use((req, res, next) => {
