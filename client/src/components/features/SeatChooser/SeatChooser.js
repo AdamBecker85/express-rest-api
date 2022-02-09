@@ -10,7 +10,7 @@ class SeatChooser extends React.Component {
     const { loadSeats, loadSeatsData } = this.props;
     loadSeats();
     this.interval = setInterval(loadSeats, 120000);
-    this.socket = io.connect((process.env.NODE_ENV === 'production') ? '/api' : 'http://localhost:8000/api', {
+    this.socket = io.connect((process.env.NODE_ENV === 'production') ? '' : 'http://localhost:8000', {
       transports: ['websocket'],
     });
     this.socket.on('seatsUpdated', (seats) => {
